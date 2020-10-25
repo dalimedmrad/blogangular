@@ -1,0 +1,62 @@
+<div class="row mb-2" *ngIf="articles.length > 0; else noArticles">
+    
+    <app-article class="col-md-6 " *ngFor="let article of articles" [article]="article"></app-article> <!--[class.favorite]="article.isFavorite"-->
+</div>
+
+<ng-template #noArticles>
+    <div class="row mb-2">
+        <p style="text-align: center; width: 100%;">
+            No articles added yet</p>
+    </div>
+</ng-template>
+
+<!--[value]="name" (keyup)="change($event)"
+
+<input type="text" class="form-control" [(ngModel)]="name">
+
+{{name}}
+
+<button class="btn btn-primary" (click)="save(this.name)">Save</button>
+{{course.title | uppercase}}<br>
+{{course.rating | number}}<br>
+{{course.students}}<br>
+{{course.price}}<br>
+{{course.releasedate | date:'shortDate'}}<br>-->
+<!--<app-modal>
+    <ng-container class="title">my first title</ng-container>
+    <ng-container class="content"> my modal content</ng-container>
+</app-modal>-->
+<!-- <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link " [ngClass]="{
+        'active': view=='tab1',
+        'notactive': view!='tab1'
+      }" (click)="view='tab1'">Tab1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link"  [ngClass]="{
+        'active': view=='tab2',
+        'notactive': view!='tab2'
+      }" (click)="view='tab2'">tab2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{
+        'active': view=='tab3',
+        'notactive': view!='tab3'
+      }" (click)="view='tab3'">tab3</a>
+    </li>
+  </ul>
+  <div [ngSwitch]="view">
+      <div *ngSwitchCase="'tab1'">Tab 1 Content</div>
+      <div *ngSwitchCase="'tab2'">Tab 2 Content</div>
+      <div *ngSwitchCase="'tab3'">Tab 3 Content</div>
+  </div> -->
+    
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li *ngIf="page>1" class="page-item"><a class="page-link" [routerLink]="['/category',this.category]" [queryParams]="{page:page-1}">prev</a></li> 
+      <li *ngFor="let page of pages; let i = index" class="page-item"><a class="page-link" [routerLink]="['/category',this.category]" [queryParams]="{page:i+1}">{{i+1}}</a></li> 
+      <li *ngIf="page<totalPages" class="page-item"><a class="page-link" [routerLink]="['/category',this.category]" [queryParams]="{page:page+1}">Next</a></li> 
+
+    </ul>
+  </nav>

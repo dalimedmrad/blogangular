@@ -1,0 +1,23 @@
+<main role="main" class="container">
+    <div class="row">
+      <div class="col-md-8 blog-main">
+        <h3 *ngIf="article.category" [routerLink]="['/category',article.category._id]" class="pb-4 mb-4 font-italic border-bottom">
+         {{article.category.name}}
+        </h3>
+  
+        <div class="blog-post">
+          <h2 class="blog-post-title">{{article.title}}</h2><br>
+          <p class="blog-post-meta">
+            {{article.date | date:"dd/MM/yyyy"}} by <a>{{article.author | uppercase}}</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <span *ngIf="auth.isLoggedIn()" class="btn btn-success" [routerLink]="['/article/edit',article._id]">Edit</span>&nbsp;
+             <span *ngIf="auth.isLoggedIn()" class="btn btn-danger" (click)="delete(article._id)">Delete</span>
+          </p>
+  
+          <p> {{article.content}} </p>
+        </div><!-- /.blog-post -->
+  
+      </div><!-- /.blog-main -->
+  
+    </div><!-- /.row -->
+  
+  </main>

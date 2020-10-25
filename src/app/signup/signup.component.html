@@ -1,0 +1,40 @@
+<form [formGroup]="form" (ngSubmit)="signup()" style="width: 500px;">
+    <div *ngIf="form.errors" class="alert alert-danger">
+       Invalid User
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input formControlName="name" type="text" class="form-control">
+        <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+            <span> Name is required</span>
+        </div>
+    </div>
+    <!-- <div class="form-group">
+        <label>Username</label>
+        <input formControlName="username" type="text" class="form-control">
+         <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+            <span *ngIf="username.errors.required"> Username is required</span>
+            <span *ngIf="username.errors.cannotContainSpace">Username can not Contain Spaces</span>
+        </div>
+    </div> -->
+    <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email" type="text" class="form-control">
+        <div *ngIf="email.pending" class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div class="alert alert-danger" *ngIf="email.touched && !email.valid && !email.pending ">
+            <span *ngIf="email.errors.required"> Email is required</span>
+            <span *ngIf="email.errors.email" > Email is not valid</span>
+            <span *ngIf="email.errors.shoudBeUnique" > Email is already used</span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input formControlName="password" type="password" class="form-control">
+        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+            <span> Password is required</span>
+        </div>
+    </div>
+    <button class="btn btn-primary">Sign up</button>
+</form>

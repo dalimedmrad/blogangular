@@ -1,0 +1,12 @@
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative ">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong *ngIf="article.category" [routerLink]="['/category', article.category._id]" [queryParams]="{page:1}" class="d-inline-block mb-2 text-primary">{{article.category.name}}</strong>
+      <h3 class="mb-0">{{article.title}}</h3>
+      <div class="mb-1 text-muted">{{article.date | date:"dd/MM/yyyy"}}</div>
+      <p class="card-text mb-auto">{{article.content | summary}}</p>
+      <a class="p-2 text-muted" [routerLink]="['/article', article._id]" >Read more</a>
+    </div>
+    <div class="col-auto d-none d-lg-block">
+     <img src="https://placehold.jp/200x250.png" >
+    </div>
+  </div>

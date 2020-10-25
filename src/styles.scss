@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");   
+@import url("https://getbootstrap.com/docs/4.4/examples/blog/blog.css");   
+
+
+.form-control.ng-touched.ng-invalid{
+    border: 2px solid #bd4855;
+}
+.isFavorite{
+    background-color: #adadad;
+}
+
+nav a.active{
+    background-color: #22e684;
+    color: black;
+}
